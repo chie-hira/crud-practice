@@ -1,4 +1,4 @@
-package com.raisetech.servicepractice;
+package com.raisetech.servicepractice.exception;
 
 import org.apache.catalina.User;
 

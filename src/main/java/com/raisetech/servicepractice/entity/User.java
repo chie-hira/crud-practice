@@ -1,4 +1,4 @@
-package com.raisetech.servicepractice;
+package com.raisetech.servicepractice.entity;
 
 public class User {
     private int id;

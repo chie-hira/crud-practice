@@ -1,5 +1,6 @@
-package com.raisetech.servicepractice;
+package com.raisetech.servicepractice.mapper;
 
+import com.raisetech.servicepractice.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 

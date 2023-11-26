@@ -11,4 +11,7 @@ import java.util.Optional;
 public interface MaterialMapper {
     @Select("SELECT * FROM materials")
     List<Material> all();
+
+    @Select("SELECT * FROM materials WHERE id = #{id}")
+    Optional<Material> byId(int id);
 }

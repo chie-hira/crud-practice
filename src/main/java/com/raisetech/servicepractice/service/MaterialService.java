@@ -16,14 +16,14 @@ public class MaterialService {
         this.materialMapper = materialMapper;
     }
 
-    public List<Material> all(){
-        return this.materialMapper.all();
+    public List<Material> findAll(){
+        return this.materialMapper.findAll();
     }
 
-    public Optional<Material> byId(int id){
+    public Optional<Material> findById(int id){
         Optional<Material> material = this.materialMapper.byId(id);
         if (material.isPresent()){
-            return Optional.of(material.get());
+            return material;
         } else {
             throw new MaterialNotFoundException("material not found");
         }

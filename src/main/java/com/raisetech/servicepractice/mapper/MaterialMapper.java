@@ -10,7 +10,7 @@ import java.util.Optional;
 @Mapper
 public interface MaterialMapper {
     @Select("SELECT * FROM materials")
-    List<Material> all();
+    List<Material> findAll();
 
     @Select("SELECT * FROM materials WHERE id = #{id}")
     Optional<Material> byId(int id);

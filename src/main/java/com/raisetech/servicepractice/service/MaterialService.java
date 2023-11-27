@@ -22,10 +22,6 @@ public class MaterialService {
 
     public Optional<Material> findById(int id){
         Optional<Material> material = this.materialMapper.byId(id);
-        if (material.isPresent()){
-            return material;
-        } else {
-            throw new MaterialNotFoundException("material not found");
-        }
+        return Optional.ofNullable(material.orElseThrow(() -> new MaterialNotFoundException("material not found")));
     }
 }

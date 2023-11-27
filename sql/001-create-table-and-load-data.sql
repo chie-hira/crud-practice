@@ -7,7 +7,7 @@ CREATE TABLE users (
   PRIMARY KEY(id)
 );
 
-INSERT INTO users (name, email) VALUES ("negu", "negu@neko.com");
+INSERT INTO users (name, email) VALUES ("megu", "megu@neko.com");
 INSERT INTO users (name, email) VALUES ("deji", "deji@neko.com");
 INSERT INTO users (name, email) VALUES ("mopu", "mopu@neko.com");
 

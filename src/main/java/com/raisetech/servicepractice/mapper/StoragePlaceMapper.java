@@ -10,9 +10,6 @@ import java.util.List;
 
 @Mapper
 public interface StoragePlaceMapper {
-//    @Select("SELECT * FROM storage_places")
-//    List<StoragePlace> all();
-
     @Select("SELECT storage_places.*, users.name as user_name, materials.material_name as material_name FROM storage_places JOIN users ON storage_places.user_id = users.id JOIN materials ON storage_places.material_id = materials.id")
     @Results({
             @Result(property = "id", column = "id"),

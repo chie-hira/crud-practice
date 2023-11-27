@@ -25,27 +25,27 @@ public class StoragePlace {
         return id;
     }
 
-    public LocalDate getStorage_date() {
+    public LocalDate getStorageDate() {
         return storage_date;
     }
 
-    public String getStorage_place() {
+    public String getStoragePlace() {
         return storage_place;
     }
 
-    public int getUser_id() {
+    public int getUserId() {
         return user_id;
     }
 
-    public String getUser_name() {
+    public String getUserName() {
         return user_name;
     }
 
-    public int getMaterial_id() {
+    public int getMaterialId() {
         return material_id;
     }
 
-    public String getMaterial_name() {
+    public String getMaterialName() {
         return material_name;
     }
 }

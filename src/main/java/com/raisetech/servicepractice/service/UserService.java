@@ -17,11 +17,6 @@ public class UserService {
 
     public User findUser(int id){
         Optional<User> user = this.userMapper.findById(id);
-//        return user.get(); // Optionalのget()はnullで例外を発生させる
-        if (user.isPresent()){
-            return user.get();
-        } else {
-            throw  new UserNotFoundException("user not found");
-        }
+        return user.orElseThrow(()-> new UserNotFoundException("user not found"));
     }
 }

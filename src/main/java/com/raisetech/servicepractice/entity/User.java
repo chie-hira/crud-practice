@@ -11,6 +11,12 @@ public class User {
         this.email = email;
     }
 
+    //    Factoryメソッド
+    public User(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
+
     public int getId() {
         return id;
     }

@@ -19,4 +19,10 @@ public class UserService {
         Optional<User> user = this.userMapper.findById(id);
         return user.orElseThrow(()-> new UserNotFoundException("user not found"));
     }
+
+    public User insert(String name, String email) {
+        User user = new User(name, email);
+        userMapper.insert(user);
+        return user;
+    }
 }

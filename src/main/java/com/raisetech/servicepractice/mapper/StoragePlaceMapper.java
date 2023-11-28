@@ -20,6 +20,6 @@ public interface StoragePlaceMapper {
             @Result(property = "material_id", column = "material_id"),
             @Result(property = "material_name", column = "material_name")
     })
-    List<StoragePlace> all();
+    List<StoragePlace> findAll();
 
 }

@@ -14,8 +14,8 @@ public class StoragePlaceService {
         this.storagePlaceMapper = storagePlaceMapper;
     }
 
-    public List<StoragePlace> all(){
-        return this.storagePlaceMapper.all();
+    public List<StoragePlace> findAll(){
+        return this.storagePlaceMapper.findAll();
     }
 
 

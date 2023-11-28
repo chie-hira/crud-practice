@@ -17,6 +17,6 @@ public class StoragePlaceController {
 
     @GetMapping("/storagePlaces")
     public List<StoragePlace> allStoragePlaces(){
-        return this.storagePlaceService.all();
+        return this.storagePlaceService.findAll();
     }
 }

@@ -7,7 +7,7 @@ CREATE TABLE users (
   PRIMARY KEY(id)
 );
 
-INSERT INTO users (name, email) VALUES ("negu", "negu@neko.com");
+INSERT INTO users (name, email) VALUES ("megu", "megu@neko.com");
 INSERT INTO users (name, email) VALUES ("deji", "deji@neko.com");
 INSERT INTO users (name, email) VALUES ("mopu", "mopu@neko.com");
 
@@ -30,6 +30,7 @@ DROP TABLE IF EXISTS storage_places;
 CREATE TABLE storage_places (
   id int unsigned AUTO_INCREMENT,
   storage_date DATE NOT NULL,
+  storage_place VARCHAR(20) NOT Null,
   user_id int unsigned NOT NULL,
   material_id int unsigned NOT NULL,
   PRIMARY KEY(id),
@@ -45,8 +46,8 @@ CREATE TABLE storage_places (
       ON DELETE RESTRICT ON UPDATE RESTRICT
 );
 
-INSERT INTO storage_places (storage_date, user_id, material_id) VALUES ("2023-11-01", 1, 1);
-INSERT INTO storage_places (storage_date, user_id, material_id) VALUES ("2023-11-01", 2, 2);
-INSERT INTO storage_places (storage_date, user_id, material_id) VALUES ("2023-11-03", 1, 3);
-INSERT INTO storage_places (storage_date, user_id, material_id) VALUES ("2023-11-03", 1, 4);
-INSERT INTO storage_places (storage_date, user_id, material_id) VALUES ("2023-11-05", 2, 5);
+INSERT INTO storage_places (storage_date, storage_place, user_id, material_id) VALUES ("2023-11-01", "書庫1-1", 1, 1);
+INSERT INTO storage_places (storage_date, storage_place, user_id, material_id) VALUES ("2023-11-01", "書庫2-1", 2, 2);
+INSERT INTO storage_places (storage_date, storage_place, user_id, material_id) VALUES ("2023-11-03", "書庫2-1", 1, 3);
+INSERT INTO storage_places (storage_date, storage_place, user_id, material_id) VALUES ("2023-11-03", "書庫1-1", 1, 4);
+INSERT INTO storage_places (storage_date, storage_place, user_id, material_id) VALUES ("2023-11-05", "書庫1-2", 2, 5);

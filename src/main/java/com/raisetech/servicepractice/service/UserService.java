@@ -1,5 +1,6 @@
 package com.raisetech.servicepractice.service;
 
+import com.raisetech.servicepractice.exception.UserAlreadyExistsException;
 import com.raisetech.servicepractice.exception.UserNotFoundException;
 import com.raisetech.servicepractice.entity.User;
 import com.raisetech.servicepractice.mapper.UserMapper;
@@ -21,6 +22,10 @@ public class UserService {
     }
 
     public User insert(String name, String email) {
+        Optional<User> userOptional = this.userMapper.findByEmail(email);
+        if (userOptional.isPresent()){
+            throw new UserAlreadyExistsException("email:" + email + "already exists");
+        }
         User user = new User(name, email);
         userMapper.insert(user);
         return user;

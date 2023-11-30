@@ -1,4 +1,4 @@
-package com.raisetech.servicepractice.controller;
+package com.raisetech.servicepractice.controller.response;
 
 public class UserResponse {
     private String message;

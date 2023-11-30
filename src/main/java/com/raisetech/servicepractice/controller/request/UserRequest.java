@@ -1,7 +1,11 @@
-package com.raisetech.servicepractice.controller;
+package com.raisetech.servicepractice.controller.request;
+
+import jakarta.validation.constraints.NotNull;
 
 public class UserRequest {
+    @NotNull
     private String name;
+    @NotNull
     private String email;
 
     public UserRequest(String name, String email) {

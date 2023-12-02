@@ -1,7 +1,6 @@
 package com.raisetech.servicepractice.mapper;
 
 import com.raisetech.servicepractice.entity.Material;
-import com.raisetech.servicepractice.entity.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
@@ -16,7 +15,10 @@ public interface MaterialMapper {
     List<Material> findAll();
 
     @Select("SELECT * FROM materials WHERE id = #{id}")
-    Optional<Material> byId(int id);
+    Optional<Material> findById(int id);
+
+    @Select("SELECT * FROM materials WHERE material_name = #{material_name}")
+    Optional<Material> findByName(String material_name);
 
     @Insert("INSERT INTO materials (material_name) VALUES (#{material_name})")
     @Options(useGeneratedKeys = true, keyProperty = "id")

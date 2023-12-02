@@ -24,4 +24,10 @@ public class MaterialService {
         Optional<Material> material = this.materialMapper.byId(id);
         return Optional.ofNullable(material.orElseThrow(() -> new MaterialNotFoundException("material not found")));
     }
+
+    public Material insert(String material_name){
+        Material material = new Material(material_name);
+        materialMapper.insert(material);
+        return material;
+    }
 }

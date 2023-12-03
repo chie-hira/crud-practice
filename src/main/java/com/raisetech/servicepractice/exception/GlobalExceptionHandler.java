@@ -63,6 +63,7 @@ public class GlobalExceptionHandler {
                 "path", request.getRequestURI());
         return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
     }
+
     @ExceptionHandler(UserNotExistsException.class)
     public ResponseEntity<Map<String, String>> handleUserNotExistsException(
             UserNotExistsException e, HttpServletRequest request

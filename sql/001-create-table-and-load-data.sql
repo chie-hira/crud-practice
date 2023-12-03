@@ -32,7 +32,7 @@ CREATE TABLE storage_places (
   storage_date DATE NOT NULL,
   storage_place VARCHAR(20) NOT Null,
   user_id int unsigned NOT NULL,
-  material_id int unsigned NOT NULL,
+  material_id int unsigned NOT NULL UNIQUE,
   PRIMARY KEY(id),
 
   CONSTRAINT fk_storage_user_id

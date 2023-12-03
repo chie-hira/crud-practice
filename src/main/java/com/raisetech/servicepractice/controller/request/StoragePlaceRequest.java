@@ -9,9 +9,7 @@ public class StoragePlaceRequest {
     private LocalDate storageDate;
     @NotNull
     private String storagePlace;
-    @NotNull
     private int userId;
-    @NotNull
     private int materialId;
 
     public StoragePlaceRequest(LocalDate storageDate, String storagePlace, int userId, int materialId) {

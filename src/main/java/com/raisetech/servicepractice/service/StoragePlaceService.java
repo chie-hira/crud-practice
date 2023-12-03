@@ -5,6 +5,7 @@ import com.raisetech.servicepractice.entity.StoragePlace;
 import com.raisetech.servicepractice.entity.User;
 import com.raisetech.servicepractice.exception.MaterialDuplicateException;
 import com.raisetech.servicepractice.exception.MaterialNotExistsException;
+import com.raisetech.servicepractice.exception.MaterialNotFoundException;
 import com.raisetech.servicepractice.exception.UserNotExistsException;
 import com.raisetech.servicepractice.mapper.MaterialMapper;
 import com.raisetech.servicepractice.mapper.StoragePlaceMapper;
@@ -32,17 +33,11 @@ public class StoragePlaceService {
     }
 
     public StoragePlace insert(LocalDate storageDate, String storagePlace, int userId, int materialId){
-        Optional<User> userOptional = this.userMapper.findById(userId);
-        // user_idがない
-        if (userOptional.isEmpty()){
-            throw new UserNotExistsException("the userId not exists");
-        }
+        // userIdがない
+        this.userMapper.findById(userId).orElseThrow(() -> new UserNotExistsException("the userId not exists"));
 
         // material_idがない
-        Optional<Material> materialOptional = this.materialMapper.findById(materialId);
-        if (materialOptional.isEmpty()){
-            throw new MaterialNotExistsException("the materialId not exists");
-        }
+        this.materialMapper.findById(materialId).orElseThrow(()-> new MaterialNotExistsException("the materialId not exists"));
 
         // material_idが重複
         Optional<StoragePlace> storagePlaceOptional = this.storagePlaceMapper.findByMaterialId(materialId);

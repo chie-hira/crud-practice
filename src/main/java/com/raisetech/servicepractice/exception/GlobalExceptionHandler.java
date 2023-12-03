@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
+    // 404
     @ExceptionHandler(value = UserNotFoundException.class)
     public ResponseEntity<Map<String, String>> handleUserNotFoundException(
             UserNotFoundException e, HttpServletRequest request) {
@@ -54,32 +55,6 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MaterialAlreadyExistsException.class)
     public ResponseEntity<Map<String, String>> handleMaterialAlreadyExistsException(
             MaterialAlreadyExistsException e, HttpServletRequest request
-    ){
-        Map<String, String> body = Map.of(
-                "timestamp", ZonedDateTime.now().toString(),
-                "status", String.valueOf(HttpStatus.BAD_REQUEST.value()),
-                "error", HttpStatus.BAD_REQUEST.getReasonPhrase(),
-                "message", e.getMessage(),
-                "path", request.getRequestURI());
-        return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
-    }
-
-    @ExceptionHandler(UserNotExistsException.class)
-    public ResponseEntity<Map<String, String>> handleUserNotExistsException(
-            UserNotExistsException e, HttpServletRequest request
-    ){
-        Map<String, String> body = Map.of(
-                "timestamp", ZonedDateTime.now().toString(),
-                "status", String.valueOf(HttpStatus.BAD_REQUEST.value()),
-                "error", HttpStatus.BAD_REQUEST.getReasonPhrase(),
-                "message", e.getMessage(),
-                "path", request.getRequestURI());
-        return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
-    }
-
-    @ExceptionHandler(MaterialNotExistsException.class)
-    public ResponseEntity<Map<String, String>> handleMaterialNotExistsException(
-            MaterialNotExistsException e, HttpServletRequest request
     ){
         Map<String, String> body = Map.of(
                 "timestamp", ZonedDateTime.now().toString(),

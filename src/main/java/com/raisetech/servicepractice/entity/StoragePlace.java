@@ -21,6 +21,21 @@ public class StoragePlace {
         this.material_name = material_name;
     }
 
+    public StoragePlace(int id, LocalDate storage_date, String storage_place, int user_id, int material_id) {
+        this.id = id;
+        this.storage_date = storage_date;
+        this.storage_place = storage_place;
+        this.user_id = user_id;
+        this.material_id = material_id;
+    }
+
+    public StoragePlace(LocalDate storage_date, String storage_place, int user_id, int material_id) {
+        this.storage_date = storage_date;
+        this.storage_place = storage_place;
+        this.user_id = user_id;
+        this.material_id = material_id;
+    }
+
     public int getId() {
         return id;
     }

@@ -1,12 +1,10 @@
 package com.raisetech.servicepractice.mapper;
 
 import com.raisetech.servicepractice.entity.StoragePlace;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Mapper
 public interface StoragePlaceMapper {
@@ -21,5 +19,12 @@ public interface StoragePlaceMapper {
             @Result(property = "material_name", column = "material_name")
     })
     List<StoragePlace> findAll();
+
+    @Select("SELECT * FROM storage_places WHERE material_id = #{material_id}")
+    Optional<StoragePlace> findByMaterialId(int material_id);
+
+    @Insert("INSERT INTO storage_places (storage_date, storage_place, user_id, material_id) VALUES (#{storage_date}, #{storage_place}, #{user_id}, #{material_id})")
+    @Options(useGeneratedKeys = true, keyProperty = "id")
+    void insert(StoragePlace storagePlace);
 
 }

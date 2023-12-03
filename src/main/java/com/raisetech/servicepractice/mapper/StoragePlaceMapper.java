@@ -20,10 +20,10 @@ public interface StoragePlaceMapper {
     })
     List<StoragePlace> findAll();
 
-    @Select("SELECT * FROM storage_places WHERE material_id = #{material_id}")
-    Optional<StoragePlace> findByMaterialId(int material_id);
+    @Select("SELECT * FROM storage_places WHERE material_id = #{materialId}")
+    Optional<StoragePlace> findByMaterialId(int materialId);
 
-    @Insert("INSERT INTO storage_places (storage_date, storage_place, user_id, material_id) VALUES (#{storage_date}, #{storage_place}, #{user_id}, #{material_id})")
+    @Insert("INSERT INTO storage_places (storage_date, storage_place, user_id, material_id) VALUES (#{storageDate}, #{storagePlace}, #{userId}, #{materialId})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     void insert(StoragePlace storagePlace);
 

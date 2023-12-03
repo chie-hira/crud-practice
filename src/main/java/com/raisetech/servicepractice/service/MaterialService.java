@@ -26,13 +26,13 @@ public class MaterialService {
         return Optional.ofNullable(material.orElseThrow(() -> new MaterialNotFoundException("material not found")));
     }
 
-    public Material insert(String material_name){
+    public Material insert(String materialName){
         // バリデーション
-        Optional<Material> optionalMaterial = this.materialMapper.findByName(material_name);
+        Optional<Material> optionalMaterial = this.materialMapper.findByName(materialName);
         if (optionalMaterial.isPresent()){
-            throw new MaterialAlreadyExistsException("material_name:" + material_name + "already exists");
+            throw new MaterialAlreadyExistsException("materialName:" + materialName + "already exists");
         }
-        Material material = new Material(material_name);
+        Material material = new Material(materialName);
         materialMapper.insert(material);
         return material;
     }

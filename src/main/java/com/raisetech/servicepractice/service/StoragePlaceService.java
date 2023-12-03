@@ -31,27 +31,28 @@ public class StoragePlaceService {
         return this.storagePlaceMapper.findAll();
     }
 
-    public StoragePlace insert(LocalDate storage_date, String storage_place, int user_id, int material_id){
-        Optional<User> userOptional = this.userMapper.findById(user_id);
+    public StoragePlace insert(LocalDate storageDate, String storagePlace, int userId, int materialId){
+        Optional<User> userOptional = this.userMapper.findById(userId);
         // user_idがない
         if (userOptional.isEmpty()){
-            throw new UserNotExistsException("the user_id not exists");
+            throw new UserNotExistsException("the userId not exists");
         }
 
         // material_idがない
-        Optional<Material> materialOptional = this.materialMapper.findById(material_id);
+        Optional<Material> materialOptional = this.materialMapper.findById(materialId);
         if (materialOptional.isEmpty()){
-            throw new MaterialNotExistsException("the material_id not exists");
+            throw new MaterialNotExistsException("the materialId not exists");
         }
 
         // material_idが重複
-        Optional<StoragePlace> storagePlaceOptional = this.storagePlaceMapper.findByMaterialId(material_id);
+        Optional<StoragePlace> storagePlaceOptional = this.storagePlaceMapper.findByMaterialId(materialId);
         if (storagePlaceOptional.isPresent()){
             throw new MaterialDuplicateException("the material already stored");
         }
-        StoragePlace storagePlace = new StoragePlace(storage_date, storage_place, user_id, material_id);
-        storagePlaceMapper.insert(storagePlace);
-        return storagePlace;
+
+        StoragePlace storagePlaceClass = new StoragePlace(storageDate, storagePlace, userId, materialId);
+        storagePlaceMapper.insert(storagePlaceClass);
+        return storagePlaceClass;
     }
 
 }

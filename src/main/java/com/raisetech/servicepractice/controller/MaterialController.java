@@ -2,7 +2,6 @@ package com.raisetech.servicepractice.controller;
 
 import com.raisetech.servicepractice.controller.request.MaterialRequest;
 import com.raisetech.servicepractice.controller.response.MaterialResponse;
-import com.raisetech.servicepractice.controller.response.UserResponse;
 import com.raisetech.servicepractice.entity.Material;
 import com.raisetech.servicepractice.service.MaterialService;
 import jakarta.validation.Valid;
@@ -34,7 +33,7 @@ public class MaterialController {
 
     @PostMapping("/materials")
     public ResponseEntity<MaterialResponse> insert(@RequestBody @Valid MaterialRequest materialRequest, UriComponentsBuilder uriComponentsBuilder){
-        Material material = materialService.insert(materialRequest.getMaterial_name());
+        Material material = materialService.insert(materialRequest.getMaterialName());
         URI location = uriComponentsBuilder.path("materials/{id}").buildAndExpand(material.getId()).toUri();
         MaterialResponse body = new MaterialResponse("material created");
         return ResponseEntity.created(location).body(body);

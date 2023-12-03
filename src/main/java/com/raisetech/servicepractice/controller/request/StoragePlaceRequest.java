@@ -1,40 +1,39 @@
 package com.raisetech.servicepractice.controller.request;
 
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
 
 import java.time.LocalDate;
 
 public class StoragePlaceRequest {
     @NotNull
-    private LocalDate storage_date;
+    private LocalDate storageDate;
     @NotNull
-    private String storage_place;
+    private String storagePlace;
     @NotNull
-    private int user_id;
+    private int userId;
     @NotNull
-    private int material_id;
+    private int materialId;
 
-    public StoragePlaceRequest(LocalDate storage_date, String storage_place, int user_id, int material_id) {
-        this.storage_date = storage_date;
-        this.storage_place = storage_place;
-        this.user_id = user_id;
-        this.material_id = material_id;
+    public StoragePlaceRequest(LocalDate storageDate, String storagePlace, int userId, int materialId) {
+        this.storageDate = storageDate;
+        this.storagePlace = storagePlace;
+        this.userId = userId;
+        this.materialId = materialId;
     }
 
-    public LocalDate getStorage_date() {
-        return storage_date;
+    public LocalDate getStorageDate() {
+        return storageDate;
     }
 
-    public String getStorage_place() {
-        return storage_place;
+    public String getStoragePlace() {
+        return storagePlace;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public int getUserId() {
+        return userId;
     }
 
-    public int getMaterial_id() {
-        return material_id;
+    public int getMaterialId() {
+        return materialId;
     }
 }

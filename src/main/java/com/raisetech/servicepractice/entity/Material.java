@@ -2,15 +2,15 @@ package com.raisetech.servicepractice.entity;
 
 public class Material {
     private int id;
-    private String material_name;
+    private String materialName;
 
-    public Material(int id, String material_name) {
+    public Material(int id, String materialName) {
         this.id = id;
-        this.material_name = material_name;
+        this.materialName = materialName;
     }
 
-    public Material(String material_name) {
-        this.material_name = material_name;
+    public Material(String materialName) {
+        this.materialName = materialName;
     }
 
 
@@ -18,7 +18,7 @@ public class Material {
         return id;
     }
 
-    public String getMaterial_name() {
-        return material_name;
+    public String getMaterialName() {
+        return materialName;
     }
 }

@@ -1,5 +1,16 @@
 package com.raisetech.servicepractice.exception;
 
+import org.springframework.http.HttpStatus;
+
 public class MaterialNotFoundException extends RuntimeException{
-    public MaterialNotFoundException(String message){super(message);}
+    private HttpStatus status;
+
+    public MaterialNotFoundException(String message, HttpStatus status){
+        super(message);
+        this.status = status;
+    }
+
+    public HttpStatus getStatus() {
+        return status;
+    }
 }

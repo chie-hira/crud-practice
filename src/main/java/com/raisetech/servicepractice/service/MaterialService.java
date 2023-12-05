@@ -4,6 +4,7 @@ import com.raisetech.servicepractice.entity.Material;
 import com.raisetech.servicepractice.exception.MaterialAlreadyExistsException;
 import com.raisetech.servicepractice.exception.MaterialNotFoundException;
 import com.raisetech.servicepractice.mapper.MaterialMapper;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,7 +24,7 @@ public class MaterialService {
 
     public Optional<Material> findById(int id){
         Optional<Material> material = this.materialMapper.findById(id);
-        return Optional.ofNullable(material.orElseThrow(() -> new MaterialNotFoundException("material not found")));
+        return Optional.ofNullable(material.orElseThrow(() -> new MaterialNotFoundException("material not found", HttpStatus.NOT_FOUND)));
     }
 
     public Material insert(String materialName){

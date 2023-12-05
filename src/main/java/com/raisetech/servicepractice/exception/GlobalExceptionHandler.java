@@ -21,11 +21,11 @@ public class GlobalExceptionHandler {
             UserNotFoundException e, HttpServletRequest request) {
         Map<String, String> body = Map.of(
                 "timestamp", ZonedDateTime.now().toString(),
-                "status", String.valueOf(HttpStatus.NOT_FOUND.value()),
-                "error", HttpStatus.NOT_FOUND.getReasonPhrase(),
+                "status", String.valueOf(e.getStatus().value()),
+                "error", e.getStatus().getReasonPhrase(),
                 "message", e.getMessage(),
                 "path", request.getRequestURI());
-        return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(body, e.getStatus());
     }
 
     @ExceptionHandler(MaterialNotFoundException.class)
@@ -33,11 +33,11 @@ public class GlobalExceptionHandler {
             MaterialNotFoundException e, HttpServletRequest request) {
         Map<String, String> body = Map.of(
                 "timestamp", ZonedDateTime.now().toString(),
-                "status", String.valueOf(HttpStatus.NOT_FOUND.value()),
-                "error", HttpStatus.NOT_FOUND.getReasonPhrase(),
+                "status", String.valueOf(e.getStatus().value()),
+                "error", e.getStatus().getReasonPhrase(),
                 "message", e.getMessage(),
                 "path", request.getRequestURI());
-        return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(body, e.getStatus());
     }
 
     @ExceptionHandler(UserAlreadyExistsException.class)

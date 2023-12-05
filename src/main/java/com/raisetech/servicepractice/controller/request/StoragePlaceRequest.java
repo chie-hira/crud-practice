@@ -1,13 +1,17 @@
 package com.raisetech.servicepractice.controller.request;
 
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
 
 import java.time.LocalDate;
 
 public class StoragePlaceRequest {
     @NotNull
+    @PastOrPresent(message = "storageDate must be before today")
     private LocalDate storageDate;
     @NotNull
+    @NotBlank(message = "storagePlace is required")
     private String storagePlace;
     private int userId;
     private int materialId;

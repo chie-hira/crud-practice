@@ -1,7 +1,6 @@
 package com.raisetech.servicepractice.controller.request;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
 public class UserRequest {
     @NotBlank(message = "name is required")

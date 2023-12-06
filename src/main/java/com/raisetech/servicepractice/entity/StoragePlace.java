@@ -4,21 +4,36 @@ import java.time.LocalDate;
 
 public class StoragePlace {
     private int id;
-    private LocalDate storage_date;
-    private String storage_place;
-    private int user_id;
-    private String user_name;
-    private int material_id;
-    private String material_name;
+    private LocalDate storageDate;
+    private String storagePlace;
+    private int userId;
+    private String userName;
+    private int materialId;
+    private String materialName;
 
-    public StoragePlace(int id, LocalDate storage_date, String storage_place, int user_id, int material_id, String user_name, String material_name) {
+    public StoragePlace(int id, LocalDate storageDate, String storagePlace, int userId, int materialId, String userName, String materialName) {
         this.id = id;
-        this.storage_date = storage_date;
-        this.storage_place = storage_place;
-        this.user_id = user_id;
-        this.user_name = user_name;
-        this.material_id = material_id;
-        this.material_name = material_name;
+        this.storageDate = storageDate;
+        this.storagePlace = storagePlace;
+        this.userId = userId;
+        this.userName = userName;
+        this.materialId = materialId;
+        this.materialName = materialName;
+    }
+
+    public StoragePlace(int id, LocalDate storageDate, String storagePlace, int userId, int materialId) {
+        this.id = id;
+        this.storageDate = storageDate;
+        this.storagePlace = storagePlace;
+        this.userId = userId;
+        this.materialId = materialId;
+    }
+
+    public StoragePlace(LocalDate storageDate, String storagePlace, int userId, int materialId) {
+        this.storageDate = storageDate;
+        this.storagePlace = storagePlace;
+        this.userId = userId;
+        this.materialId = materialId;
     }
 
     public int getId() {
@@ -26,26 +41,26 @@ public class StoragePlace {
     }
 
     public LocalDate getStorageDate() {
-        return storage_date;
+        return storageDate;
     }
 
     public String getStoragePlace() {
-        return storage_place;
+        return storagePlace;
     }
 
     public int getUserId() {
-        return user_id;
+        return userId;
     }
 
     public String getUserName() {
-        return user_name;
+        return userName;
     }
 
     public int getMaterialId() {
-        return material_id;
+        return materialId;
     }
 
     public String getMaterialName() {
-        return material_name;
+        return materialName;
     }
 }

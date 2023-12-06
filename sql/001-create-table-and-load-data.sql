@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS users;
 CREATE TABLE users (
   id int unsigned AUTO_INCREMENT,
   name VARCHAR(100) NOT NULL,
-  email VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULL UNIQUE,
   PRIMARY KEY(id)
 );
 
@@ -15,7 +15,7 @@ DROP TABLE IF EXISTS materials;
 
 CREATE TABLE materials (
   id int unsigned AUTO_INCREMENT,
-  material_name VARCHAR(50) NOT NULL,
+  material_name VARCHAR(50) NOT NULL UNIQUE,
   PRIMARY KEY(id)
 );
 
@@ -32,7 +32,7 @@ CREATE TABLE storage_places (
   storage_date DATE NOT NULL,
   storage_place VARCHAR(20) NOT Null,
   user_id int unsigned NOT NULL,
-  material_id int unsigned NOT NULL,
+  material_id int unsigned NOT NULL UNIQUE,
   PRIMARY KEY(id),
 
   CONSTRAINT fk_storage_user_id

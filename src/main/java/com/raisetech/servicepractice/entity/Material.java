@@ -2,18 +2,23 @@ package com.raisetech.servicepractice.entity;
 
 public class Material {
     private int id;
-    private String name;
+    private String materialName;
 
-    public Material(int id, String name) {
+    public Material(int id, String materialName) {
         this.id = id;
-        this.name = name;
+        this.materialName = materialName;
     }
+
+    public Material(String materialName) {
+        this.materialName = materialName;
+    }
+
 
     public int getId() {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public String getMaterialName() {
+        return materialName;
     }
 }

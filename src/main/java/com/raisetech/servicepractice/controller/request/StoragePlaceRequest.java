@@ -10,7 +10,6 @@ public class StoragePlaceRequest {
     @NotNull
     @PastOrPresent(message = "storageDate must be before today")
     private LocalDate storageDate;
-    @NotNull
     @NotBlank(message = "storagePlace is required")
     private String storagePlace;
     private int userId;

@@ -1,0 +1,49 @@
+users:
+  - id: 1
+    name: "megu"
+    email: "megu@neko.com"
+  - id: 2
+    name: "deji"
+    email: "deji@neko.com"
+  - id: 3
+    name: "mopu"
+    email: "mopu@neko.com"
+
+materials:
+  - id: 1
+    material_name: "shiryo1"
+  - id: 2
+    material_name: "shiryo2"
+  - id: 3
+    material_name: "shiryo3"
+  - id: 4
+    material_name: "shiryo4"
+  - id: 5
+    material_name: "shiryo5"
+
+storage_places:
+  - id: 1
+    storage_date: "2023-11-01"
+    storage_place: "書庫1-1"
+    user_id: 1
+    material_id: 1
+  - id: 2
+    storage_date: "2023-11-01"
+    storage_place: "書庫2-1"
+    user_id: 2
+    material_id: 2
+  - id: 3
+    storage_date: "2023-11-03"
+    storage_place: "書庫2-1"
+    user_id: 1
+    material_id: 3
+  - id: 4
+    storage_date: "2023-11-03"
+    storage_place: "書庫1-1"
+    user_id: 1
+    material_id: 4
+  - id: 5
+    storage_date: "2023-11-05"
+    storage_place: "書庫1-2"
+    user_id: 2
+    material_id: 5

@@ -7,6 +7,7 @@ import com.raisetech.servicepractice.mapper.UserMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -16,6 +17,8 @@ public class UserService {
     public UserService(UserMapper userMapper){
         this.userMapper = userMapper;
     }
+
+    public List<User> findAll(){return this.userMapper.findAll();}
 
     public User findUser(int id){
         Optional<User> user = this.userMapper.findById(id);

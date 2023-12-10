@@ -22,9 +22,9 @@ public class MaterialService {
         return this.materialMapper.findAll();
     }
 
-    public Optional<Material> findById(int id){
+    public Material findById(int id){
         Optional<Material> material = this.materialMapper.findById(id);
-        return Optional.ofNullable(material.orElseThrow(() -> new MaterialNotFoundException("material not found", HttpStatus.NOT_FOUND)));
+        return material.orElseThrow(() -> new MaterialNotFoundException("material not found", HttpStatus.NOT_FOUND));
     }
 
     public Material insert(String materialName){

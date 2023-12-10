@@ -27,7 +27,7 @@ public class MaterialController {
     }
 
     @GetMapping("/materials/{id}")
-    public Optional<Material> materialById(@PathVariable("id") int id){
+    public Material materialById(@PathVariable("id") int id){
         return  materialService.findById(id);
     }
 

@@ -11,12 +11,12 @@ public interface StoragePlaceMapper {
     @Select("SELECT storage_places.*, users.name as user_name, materials.material_name as material_name FROM storage_places JOIN users ON storage_places.user_id = users.id JOIN materials ON storage_places.material_id = materials.id")
     @Results({
             @Result(property = "id", column = "id"),
-            @Result(property = "storage_date", column = "storage_date"),
-            @Result(property = "storage_place", column = "storage_place"),
-            @Result(property = "user_id", column = "user_id"),
-            @Result(property = "user_name", column = "user_name"),
-            @Result(property = "material_id", column = "material_id"),
-            @Result(property = "material_name", column = "material_name")
+            @Result(property = "storageDate", column = "storage_date"),
+            @Result(property = "storagePlace", column = "storage_place"),
+            @Result(property = "userId", column = "user_id"),
+            @Result(property = "userName", column = "user_name"),
+            @Result(property = "materialId", column = "material_id"),
+            @Result(property = "materialName", column = "material_name")
     })
     List<StoragePlace> findAll();
 

@@ -1,6 +1,7 @@
 package com.raisetech.servicepractice.entity;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class StoragePlace {
     private int id;
@@ -62,5 +63,18 @@ public class StoragePlace {
 
     public String getMaterialName() {
         return materialName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        StoragePlace that = (StoragePlace) o;
+        return id == that.id && userId == that.userId && materialId == that.materialId && Objects.equals(storageDate, that.storageDate) && Objects.equals(storagePlace, that.storagePlace) && Objects.equals(userName, that.userName) && Objects.equals(materialName, that.materialName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, storageDate, storagePlace, userId, userName, materialId, materialName);
     }
 }

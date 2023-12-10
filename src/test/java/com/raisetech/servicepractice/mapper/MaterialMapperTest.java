@@ -40,6 +40,11 @@ public class MaterialMapperTest {
     }
 
     @Test
+    @Sql(
+            scripts = {"classpath:/sqlannotation/delete-materials.sql","classpath:/sqlannotation/insert-materials.sql"},
+            executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD
+    )
+    @Transactional
     void idから資料を取得できること() {
         int materialId = 2;
         Optional<Material> material = materialMapper.findById(materialId);
@@ -50,6 +55,11 @@ public class MaterialMapperTest {
     }
 
     @Test
+    @Sql(
+            scripts = {"classpath:/sqlannotation/delete-materials.sql","classpath:/sqlannotation/insert-materials.sql"},
+            executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD
+    )
+    @Transactional
     void 資料名から資料を取得できること() {
         String materialName = "shiryo3";
         Optional<Material> material = materialMapper.findByName(materialName);
@@ -60,16 +70,21 @@ public class MaterialMapperTest {
     }
 
     @Test
-    void 資料を登録できること() {
-        Material material = new Material("shiryo7");
+    @Sql(
+            scripts = {"classpath:/sqlannotation/delete-materials.sql","classpath:/sqlannotation/insert-materials.sql"},
+            executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD
+    )
+    @Transactional
+    void 存在しない資料名の資料を登録できること() {
+        Material material = new Material("shiryo6");
         materialMapper.insert(material);
         int materialId = material.getId();
 
         List<Material> allMaterials = materialMapper.findAll();
         assertThat(allMaterials)
-                .hasSize(7)
+                .hasSize(6)
                 .contains(
-                        new Material(materialId, "shiryo7")
+                        new Material(materialId, "shiryo6")
                 );
     }
 }

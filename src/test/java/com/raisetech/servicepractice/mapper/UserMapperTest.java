@@ -36,6 +36,11 @@ public class UserMapperTest {
                 );
     }
     @Test
+    @Sql(
+            scripts = {"classpath:/sqlannotation/delete-users.sql","classpath:/sqlannotation/insert-users.sql"},
+            executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD
+    )
+    @Transactional
     void idからユーザーを取得できること() {
         int userId = 1;
         Optional<User> user = userMapper.findById(userId);
@@ -46,6 +51,11 @@ public class UserMapperTest {
     }
 
     @Test
+    @Sql(
+            scripts = {"classpath:/sqlannotation/delete-users.sql","classpath:/sqlannotation/insert-users.sql"},
+            executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD
+    )
+    @Transactional
     void emailからユーザーを取得できること() {
         String email = "deji@neko.com";
         Optional<User> user = userMapper.findByEmail(email);
@@ -56,6 +66,11 @@ public class UserMapperTest {
     }
 
     @Test
+    @Sql(
+            scripts = {"classpath:/sqlannotation/delete-users.sql","classpath:/sqlannotation/insert-users.sql"},
+            executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD
+    )
+    @Transactional
     void ユーザーを登録できること() {
         User user = new User("kuro", "kuro@neko.com");
         userMapper.insert(user);

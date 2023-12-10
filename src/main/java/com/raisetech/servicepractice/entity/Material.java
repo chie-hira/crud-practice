@@ -1,5 +1,7 @@
 package com.raisetech.servicepractice.entity;
 
+import java.util.Objects;
+
 public class Material {
     private int id;
     private String materialName;
@@ -20,5 +22,18 @@ public class Material {
 
     public String getMaterialName() {
         return materialName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Material material = (Material) o;
+        return id == material.id && Objects.equals(materialName, material.materialName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, materialName);
     }
 }

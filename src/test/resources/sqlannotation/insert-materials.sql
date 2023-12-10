@@ -1,3 +1,5 @@
-INSERT INTO users (id, name, email) VALUES (1, "megu", "megu@neko.com");
-INSERT INTO users (id, name, email) VALUES (2, "deji", "deji@neko.com");
-INSERT INTO users (id, name, email) VALUES (3, "mopu", "mopu@neko.com");
+INSERT INTO materials (id, material_name) VALUES (1, "shiryo1");
+INSERT INTO materials (id, material_name) VALUES (2, "shiryo2");
+INSERT INTO materials (id, material_name) VALUES (3, "shiryo3");
+INSERT INTO materials (id, material_name) VALUES (4, "shiryo4");
+INSERT INTO materials (id, material_name) VALUES (5, "shiryo5");
